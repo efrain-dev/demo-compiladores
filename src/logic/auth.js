@@ -1,21 +1,22 @@
-import axios from "axios";
 import Cookies from "js-cookie";
 
-const ENDPOINT_PATH = "https://reqres.in/api/";
+const ENDPOINT_PATH = "http://localhost:8080/ProyectoCompiladores/Analizador";
 
 export default {
+    getENDPOINT_PATH() {
+       return ENDPOINT_PATH
+    },
     setUserLogged(userLogged) {
         Cookies.set("userLogged", userLogged);
     },
     getUserLogged() {
         return Cookies.get("userLogged");
     },
-    register(email, password) {
-        const user = { email, password };
-        return axios.post(ENDPOINT_PATH + "regiser", user);
+    unsetUserLogged() {
+        return Cookies.remove("userLogged");
     },
-    login(email, password) {
-        const user = { email, password };
-        return axios.post(ENDPOINT_PATH + "login", user);
-    }
+
+    getActiveSession(){
+        return Cookies.get("userLogged") !== undefined;
+    },
 };

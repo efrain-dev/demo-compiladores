@@ -1,12 +1,11 @@
 <template>
   <div id="app">
-    <navigation/>
 
   <div class="login" >
 
     <h1 class="title">Login in the page</h1>
     <form action class="form" @submit.prevent="login">
-      <label class="form-label" for="email">Email:</label>
+      <label class="form-label" for="email">Correo:</label>
       <input
           v-model="email"
           class="form-input"
@@ -15,7 +14,7 @@
           required
           placeholder="Email"
       >
-      <label class="form-label" for="password">Password:</label>
+      <label class="form-label" for="password">Contraseña:</label>
       <input
           v-model="password"
           class="form-input"
@@ -36,11 +35,12 @@
 
 <script>
 import auth from "@/logic/auth";
-import Navigation from "@/components/Navigation";
+import axios from "axios";
+import router from "@/router";
+const Swal = require('sweetalert2')
+
 export default {
-  components: {
-    navigation: Navigation
-  },
+
   data: () => ({
     email: "",
     password: "",
@@ -49,15 +49,35 @@ export default {
   methods: {
     async login() {
       try {
-        await auth.login(this.email, this.password);
-        const user = {
-          email: this.email
-        };
-        auth.setUserLogged(user);
-        this.$router.push("/");
+        await axios({
+          method: 'get',
+          url: auth.getENDPOINT_PATH(),
+          params: {
+            correo: this.email,
+            contrasena:this.password,
+            opt:"InicioSesion",
+          }
+        }).then(function (response) {
+          if (response.data.respuesta==="Exito"){
+            const user = {
+              id_usuario: response.data.id_usuario,
+              name: response.data.nombre,
+              email: response.data.correo,
+              password: response.data.contrasena,
+            };
+            auth.setUserLogged(user)
+            router.push('/')
+          }else{
+            Swal.fire({
+              icon: 'error',
+              title: 'Error: '+response.data.data,
+              timer: 4000
+            })
+          }
+        });
+
       } catch (error) {
         console.log(error);
-        this.error = true;
       }
     }
   }
@@ -79,7 +99,7 @@ export default {
   width: 20%;
   min-width: 350px;
   max-width: 100%;
-  background: rgba(19, 35, 47, 0.9);
+  background: #49525A;
   border-radius: 5px;
   padding: 40px;
   box-shadow: 0 4px 10px 4px rgba(0, 0, 0, 0.3);

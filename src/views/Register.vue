@@ -1,26 +1,34 @@
 <template>
   <div id="app">
-  <navigation/>
   <div class="register">
 
-    <h1 class="title">Sign Up</h1>
-    <form action class="form" @submit.prevent="register">
-      <label class="form-label" for="email">Email:</label>
+    <h1 class="title">Registro</h1>
+    <form action class="form" @submit.prevent="comprobar">
+      <label class="form-label" for="email">Nombre:</label>
+      <input
+          v-model="name"
+          class="form-input"
+          type="name"
+          id="name"
+          required
+          placeholder="Nombre"
+      >
+      <label class="form-label" for="email">Correo:</label>
       <input
           v-model="email"
           class="form-input"
           type="email"
           id="email"
           required
-          placeholder="Email"
+          placeholder="Correo"
       >
-      <label class="form-label" for="password">Password:</label>
+      <label class="form-label" for="password">Contraeña:</label>
       <input
           v-model="password"
           class="form-input"
           type="password"
           id="password"
-          placeholder="Password"
+          placeholder="Contrasena"
       >
       <label class="form-label" for="password-repeat">Repite la contraeña:</label>
       <input
@@ -28,9 +36,9 @@
           class="form-input"
           type="password"
           id="password-repeat"
-          placeholder="Password"
+          placeholder="Contrasena"
       >
-      <input class="form-submit" type="submit" value="Sign Up">
+      <input class="form-submit" type="submit" value="Registrar">
     </form>
   </div>
   </div>
@@ -38,21 +46,56 @@
 
 <script>
 import auth from "@/logic/auth";
-import Navigation from "@/components/Navigation";
+import axios from "axios";
+const Swal = require('sweetalert2')
+import router from "@/router";
+
 export default {
-  components: {
-    navigation: Navigation
-  },
+
   data: () => ({
+    name: "",
     email: "",
     password: "",
     passwordRepeat: ""
   }),
   methods: {
-    async register() {
+
+    comprobar(){
+      this.password=== this.passwordRepeat? this.register() : console.log('contrasena diferente')
+    },
+     async register() {
       try {
-        await auth.register(this.email, this.password);
-        this.$router.push("/");
+        await axios({
+          method: 'get',
+          url: auth.getENDPOINT_PATH(),
+          params: {
+            nombre: this.name,
+            correo: this.email,
+            contrasena:this.password,
+            opt:"Registro",
+
+          }
+        }).then(function (response) {
+         if (response.data.respuesta==="Exito"){
+            const user = {
+              id_usuario: response.data.id_usuario,
+              name: response.data.nombre,
+              email: response.data.correo,
+              password: response.data.contrasena,
+            };
+            router.push('Home')
+            auth.setUserLogged(user)
+          }else{
+           Swal.fire({
+             icon: 'error',
+             title: 'Error: '+response.data.data,
+             timer: 4000
+           })
+          }
+
+
+        });
+
       } catch (error) {
         console.log(error);
       }
@@ -76,7 +119,7 @@ export default {
   width: 20%;
   min-width: 350px;
   max-width: 100%;
-  background: rgba(19, 35, 47, 0.9);
+  background:  #49525A;
   border-radius: 5px;
   padding: 40px;
   box-shadow: 0 4px 10px 4px rgba(0, 0, 0, 0.3);
