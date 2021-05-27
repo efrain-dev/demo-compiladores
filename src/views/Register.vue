@@ -83,7 +83,7 @@ export default {
               email: response.data.correo,
               password: response.data.contrasena,
             };
-            router.push('Home')
+            router.push('/home')
             auth.setUserLogged(user)
           }else{
            Swal.fire({

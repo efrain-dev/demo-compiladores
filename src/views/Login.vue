@@ -1,9 +1,7 @@
 <template>
   <div id="app">
-
   <div class="login" >
-
-    <h1 class="title">Login in the page</h1>
+    <h1 class="title">Login</h1>
     <form action class="form" @submit.prevent="login">
       <label class="form-label" for="email">Correo:</label>
       <input
@@ -46,6 +44,11 @@ export default {
     password: "",
     error: false
   }),
+  mounted() {
+    if (auth.getActiveSession()){
+      router.push('/home')
+    }
+    },
   methods: {
     async login() {
       try {
@@ -66,7 +69,7 @@ export default {
               password: response.data.contrasena,
             };
             auth.setUserLogged(user)
-            router.push('/')
+            router.push('/home')
           }else{
             Swal.fire({
               icon: 'error',
