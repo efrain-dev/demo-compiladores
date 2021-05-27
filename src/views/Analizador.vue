@@ -1,5 +1,5 @@
 <template>
-  <div class="container shadow-lg rounded-lg p-5 my-5">
+  <div class="container shadow-lg rounded-lg p-5 my-5 bg-white">
     <h1 class="display-5" style="text-align: center;">Analizador Lexico y Sintactico</h1>
     <hr>
     <div class="row">
@@ -22,7 +22,7 @@
       </div>
 
       <div class="col">
-        <input class="btn btn-primary form-control my-1" value="Analisis Sintactico" type="button"
+        <input class="btn btn-dark form-control my-1" value="Analisis Sintactico" type="button"
                v-on:click="analisisSintactico()"/>
 
       </div>
