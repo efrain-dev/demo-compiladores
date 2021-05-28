@@ -1,32 +1,36 @@
 <template>
-  <div class="container shadow-lg rounded-lg p-5 my-5 bg-white">
-    <h1 class="display-5" style="text-align: center;">Analizador Lexico y Sintactico</h1>
-    <hr>
-    <div class="row">
-      <div class="col-md-6">
+
+  <div id="app">
+    <h1 class="title my-5" style="text-align: center;">Analizador Léxico y Sintáctico</h1>
+    <div class="caja">
+      <div class="row">
+        <div class="col-md-6">
         <textarea class="form-control" placeholder="Ingrese su codigo en este lugar" id="dataText"
                   style="height: 300px" v-model="dataText"></textarea>
-      </div>
-      <div class="col-md-6"  >
-        <div class="overflow-auto" style="height: 300px">
-        <b-table  striped hover  :items="respuestaS"></b-table>
+        </div>
+        <div class="col-md-6">
+          <h4  class="text-white" style="text-align: center;">Analizador Léxico</h4>
+
+          <div class="overflow-auto" style="height: 300px">
+            <b-table striped hover :items="respuestaS" class="text-white"></b-table>
+          </div>
+
         </div>
 
       </div>
-
-    </div>
-    <div class="row gx-5 my-5">
-      <div class="col">
+      <div class="row gx-5 my-5">
+        <div class="col">
         <textarea class="form-control" placeholder="Resultados" readonly="true" id="textRSemantica"
                   style="height: 50px" v-model="respuestaL"></textarea>
+        </div>
+
+        <div class="col">
+          <input class="btn btn-dark form-control my-1" value="Analisis Sintactico" type="button"
+                 v-on:click="analisisSintactico()"/>
+
+        </div>
+
       </div>
-
-      <div class="col">
-        <input class="btn btn-dark form-control my-1" value="Analisis Sintactico" type="button"
-               v-on:click="analisisSintactico()"/>
-
-      </div>
-
     </div>
   </div>
 </template>

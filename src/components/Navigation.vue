@@ -2,7 +2,7 @@
   <div>
     <div>
       <b-navbar toggleable="lg" type="dark"  variant="dark">
-        <b-navbar-toggle target="nav-collapse"><b-icon icon="menu-button-wide"  class="mx-1 text-info " aria-hidden="true"> </b-icon></b-navbar-toggle>
+        <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
         <b-collapse id="nav-collapse" is-nav>
           <b-navbar-nav >
             <b-nav-item v-if="session" v-bind:active="setActive($route.name,'Home')">
