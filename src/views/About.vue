@@ -1,53 +1,73 @@
 <template>
-  <div class="about">
+  <div class=" p-5 d-flex justify-content-center" >
+    <div>
+      <div class="  mt-4">
+        <!-- <h4>Top and Bottom</h4> -->
+        <b-card-group deck>
+          <b-card :img-src="require('../assets/img/mgu.jpg')" img-alt="Card image" img-top>
+            <b-card-text>
+               <h4>UMG - SEDE PUERTO BARRIOS </h4>
+              Somos un grupo de estudiantes de la Universidad Mariano Galvez de Guatemala, sede Puerto Barrios Izabal,
+              pertenecientes al ## cliclo, de la carrera de Igenieria en Sistemas, 
+            </b-card-text>
+          </b-card>
 
-    <div fluid-grow class="p-4 bg-dark">
-        <b-row>
-          <b-col>
-            <b-img thumbnail fluid :src="require('../assets/img/JAVATOOL.jpg')"></b-img>
-          </b-col>
-          <b-col>
-            <b-img thumbnail fluid src="https://i.pinimg.com/originals/34/22/90/3422900cb9e9bd4ce803847129eb6c9f.jpg" alt="Image 2"></b-img>
-          </b-col>
-          <b-col>
-            <b-img thumbnail fluid src="https://picsum.photos/250/250/?image=59" alt="Image 3"></b-img>
-          </b-col>
-        </b-row>
-        </div>
-
-    <div fluid-grow class="bg-secondary">
-        <b-row>
+          <b-card :img-src="require('../assets/img/tool.jpg')" img-alt="Card image" img-bottom>
+            <b-card-text>
+               <h4>GRUPO C - COMPILADORES</h4>
+              El oroyecto presentado es parte de curso Compliladores, dicho proyecto llamado JAVATOOL, elaborado en conjunto 
+              por el Grupo C
+            </b-card-text> 
+          </b-card>
+        </b-card-group>
+      </div>
+      <div class=" p-5">
+         <b-card-group deck>
+        <!-- efra -->
+       
+         
+          <b-card :img-src="require('../assets/img/efra.jpg')" img-left class="">
+            <b-card-text>
+               <h4>EFRAIN DE LEON</h4>
+              Estuadiante de Ingenieria en Sistemas de la Univerdad Mariano Galvez de Guatemala, de 21 años de edad, especialista en desarrollo 
+              siendo el coordinar del Grupo C, con basta experiencia en el desarrollo de aplicaciones Web y de los servicios que ofrece AWS  
+            </b-card-text>
+          </b-card>
+       
+        <!-- moreno -->
+     
+        <b-card :img-src="require('../assets/img/moreno.jpg')" img-alt="Card image" img-left class="">
+          <b-card-text>
+            <h4>BRYAN MORENO</h4>
+            Estuadiante de Ingenieria en Sistemas de la Univerdad Mariano Galvez de Guatemala, de 23 años de edad
+          </b-card-text>
+        </b-card>
+      
+        <!-- cesar -->
+       
+          <b-card :img-src="require('../assets/img/csr.jpg')" img-alt="Card image" img-left class="">
+            <b-card-text>
+              <h4>CESAR MIRON</h4>
+              Estuadiante de Ingenieria en Sistemas de la Univerdad Mariano Galvez de Guatemala, de 20 años de edad, se desempeña
+              en el area de diseño y front end, sabe que la primera impresion en la que mas cuenta y que el desarrolo a nivel visual
+              sin duda ayuda a una mejor experiencia de trabajo.
+            </b-card-text>
+          </b-card>
         
-        </b-row>
+         </b-card-group>
+      </div>
     </div>
+  
+  
 
-    <div  class="bg-dark">
-        
-        <b-carousel
-        id="carousel-fade"
-        style="text-shadow: 0px 0px 2px #000"
-        fade
-        indicators
-        img-width="1024"  
-        img-height="480"
-      >
-        <b-carousel-slide
-          caption="First slide"
-          img-src="https://picsum.photos/1024/480/?image=10"
-        ></b-carousel-slide>
-        <b-carousel-slide
-          caption="Second Slide"
-          img-src="https://picsum.photos/1024/480/?image=12"
-        ></b-carousel-slide>
-        <b-carousel-slide
-          caption="Third Slide"
-          img-src="https://picsum.photos/1024/480/?image=22"
-        ></b-carousel-slide>
-      </b-carousel>
-
-        
-        
-    </div>
 
   </div>
 </template>
+
+
+
+<style>
+
+
+
+</style>
