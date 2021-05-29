@@ -7,13 +7,13 @@
       <label class="form-label" for="email">Nombre:</label>
       <input
           v-model="name"
-          class="form-input"
+          class="form-input text-dark"
           type="name"
           id="name"
           required
           placeholder="Nombre"
       >
-      <label class="form-label" for="email">Correo:</label>
+      <label class="form-label text-dark" for="email">Correo:</label>
       <input
           v-model="email"
           class="form-input"
@@ -22,7 +22,7 @@
           required
           placeholder="Correo"
       >
-      <label class="form-label" for="password">Contraeña:</label>
+      <label class="form-label text-dark" for="password">Contraeña:</label>
       <input
           v-model="password"
           class="form-input"
@@ -30,10 +30,10 @@
           id="password"
           placeholder="Contrasena"
       >
-      <label class="form-label" for="password-repeat">Repite la contraeña:</label>
+      <label class="form-label text-dark" for="password-repeat">Repite la contraeña:</label>
       <input
           v-model="passwordRepeat"
-          class="form-input"
+          class="form-input text-dark"
           type="password"
           id="password-repeat"
           placeholder="Contrasena"

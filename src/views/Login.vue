@@ -6,7 +6,7 @@
       <label class="form-label" for="email">Correo:</label>
       <input
           v-model="email"
-          class="form-input"
+          class="form-input text-dark"
           type="email"
           id="email"
           required
@@ -15,7 +15,7 @@
       <label class="form-label" for="password">Contraseña:</label>
       <input
           v-model="password"
-          class="form-input"
+          class="form-input text-dark"
           type="password"
           id="password"
           placeholder="Password"

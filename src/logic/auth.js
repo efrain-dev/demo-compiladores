@@ -1,7 +1,7 @@
 import Cookies from "js-cookie";
 
 const ENDPOINT_PATH = "https://devartworks.online/ProyectoCompiladores/Analizador";
-//const ENDPOINT_PATH = "/ProyectoCompiladores/Analizador";
+// const ENDPOINT_PATH = "/ProyectoCompiladores/Analizador";
 
 export default {
     getENDPOINT_PATH() {

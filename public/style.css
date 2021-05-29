@@ -185,7 +185,7 @@ body{
 }
 .form-label {
     margin-top: 2rem;
-    color: white;
+    color: black;
     margin-bottom: 0.5rem;
 &:first-of-type {
      margin-top: 0rem;
@@ -195,7 +195,7 @@ body{
     padding: 10px 15px;
 
     border: 1px solid white;
-    color: white;
+    color: black;
 &:focus {
      outline: 0;
      border-color: #1ab188;
